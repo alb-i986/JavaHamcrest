@@ -50,6 +50,20 @@ public class Is<T> extends BaseMatcher<T> {
     }
 
     /**
+     * An alias for {@link #is(Matcher)}, allowing tests
+     * to be slightly more expressive.
+     * For example:
+     * <pre>assertThat(cheese, does(not(exist()))</pre>
+     * instead of:
+     * <pre>assertThat(cheese, not(exist())</pre>
+     *
+     * @see #is(Matcher)
+     */
+    public static <T> Matcher<T> does(Matcher<T> matcher) {
+        return is(matcher);
+    }
+
+    /**
      * A shortcut to the frequently used <code>is(equalTo(x))</code>.
      * For example:
      * <pre>assertThat(cheese, is(smelly))</pre>
